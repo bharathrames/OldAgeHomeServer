@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Requirement = require('../models/Requirement'); 
+const Requirement = require('../models/Requirement');
 
-
-router.get('/', async (req, res) => {
-  try {
-    const requirements = await Requirement.find();
-    res.json(requirements);
-  } catch (error) {
-    res.status(500).send('Internal Server Error');
-  }
-});
 
 
 router.post('/', async (req, res) => {
@@ -24,3 +15,22 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/', async (req, res) => {
+  try {
+    const homeName = req.query.homeName; 
+    let requirements;
+
+    if (homeName) {
+      requirements = await Requirement.find({ homeName });
+    } else {
+      requirements = await Requirement.find();
+    }
+
+    res.json(requirements);
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
