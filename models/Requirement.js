@@ -8,7 +8,7 @@ const requirementSchema = new mongoose.Schema({
   itemCat: String,
   item: String,
   unit: String,
-  SKU: String,
+  // SKU: String,
   budget: Number,
   contact: String,
   contactNumber: String,
