@@ -25,4 +25,4 @@ const requirementSchema = new mongoose.Schema({
 
 const Requirement = mongoose.model('Requirement', requirementSchema);
 
-module.exports = Requirement;
+module.exports = Requirement; 
