@@ -19,6 +19,8 @@ module.exports = router;
 router.get('/', async (req, res) => {
   try {
     const homeName = req.query.homeName; 
+    console.log('homeName:', homeName);
+
     let requirements;
 
     if (homeName) {
@@ -29,6 +31,7 @@ router.get('/', async (req, res) => {
 
     res.json(requirements);
   } catch (error) {
+    console.error('Error:', error);
     res.status(500).send('Internal Server Error');
   }
 });
